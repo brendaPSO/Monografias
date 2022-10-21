@@ -79,9 +79,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'Monografias',
-        'USER': 'postgres',
-        'PASSWORD': '07142003',
-        'HOST': 'localhost',
+        'USER': 'guilhermeadmin',
+        'PASSWORD': '8XKQ2BCAX3MNKRH6$',
+        'HOST': 'monografiasdpv.postgres.database.azure.com',
     }
 }
 

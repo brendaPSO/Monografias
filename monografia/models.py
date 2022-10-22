@@ -2,7 +2,6 @@ from django.db import models
 
 # Create your models here.
 class Monografia (models.Model):
-    nome = models.CharField(max_length=200, default = "")
     titulo = models.CharField(max_length=200, default = "")
     autor = models.CharField(max_length=100, default = "")
     orientador = models.CharField(max_length=100, default = "")

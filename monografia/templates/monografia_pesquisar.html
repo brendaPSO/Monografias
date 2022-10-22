@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="row">
+      <h1>Pesquisar Monografias</h1>
+  </div>
+
+  <div class="row">
+      <form method="GET">
+        {{ filter.form.as_p }}
+        <input type="submit" />
+      </form>
+    </div>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Orientador</th>
+            <th>Coorientador</th>
+            <th>Resumo</th>
+            <th>Palavra-chave</th>
+            <th>Universidade</th>
+            <th>Curso</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for obj in filter.qs %}
+            <tr>
+              <td>{{ obj.titulo }}</td>
+              <td>{{ obj.autor }}</td>
+              <td>{{ obj.orientador }}</td>
+              <td>{{ obj.coorientador }}</td>
+              <td>{{ obj.resumo }}</td>
+              <td>{{ obj.palavrachave }}</td>
+              <td>{{ obj.universidade }}</td>
+              <td>{{ obj.curso }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock content %}

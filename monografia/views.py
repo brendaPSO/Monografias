@@ -1,18 +1,32 @@
 from multiprocessing import context
 from django.shortcuts import render, redirect
 
+from monografia.Filters import MonografiaFilter
+
 from . models import Monografia
 
 from . forms import MonografiaForm
 
 # Create your views here.
 def index(request):
-    #Consulta
+    #Lista todas
     monografia = Monografia.objects.all()
     context = {
         'lista': monografia
     }
     return render(request,'monografia.html', context)
+
+
+def monografia_filter_list(request):
+    object_list = Monografia.objects.all()
+    monografia_list = MonografiaFilter(request.GET, queryset=object_list)
+
+    context = {
+        'object_list': object_list,
+        'filter':  monografia_list
+    }
+    return render(request,'monografia_pesquisar.html', context)
+
 
 def adicionar(request):
     form = MonografiaForm()

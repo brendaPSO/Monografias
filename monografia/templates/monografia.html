@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+{% block content %}
+<h1> Monografias Cadastradas </h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Título</th>
+            <th scope="col">Autor</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for e in lista %}
+        <tr>
+            <td> <li>{{ e.nome }}</li> </td>
+            <td>{{ e.titulo }}</td>
+            <td>{{ e.autor }}</td>
+        </tr>
+    {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

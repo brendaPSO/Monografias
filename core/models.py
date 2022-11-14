@@ -3,13 +3,13 @@ from django.db import models
 
 class Pessoa(models.Model):
     TIPO_PESSOAS = (
-        (1, 'Autor'),
-        (2, 'Coautor'),
-        (3, 'Discentes'),
+        ('1', 'Autor'),
+        ('2', 'Orientador'),
+        ('3', 'Coorientador'),
     )
 
-    nome = models.CharField(max_length=80, default='')
-    tipo = models.CharField(max_length=1, choices=TIPO_PESSOAS, default=1)
+    nome = models.CharField(max_length=80, null=True , blank=True)
+    tipo = models.CharField(max_length=30, choices=TIPO_PESSOAS)
     curso = models.CharField(max_length=100, default='')
     universidade = models.CharField(max_length=128, default='')
     email = models.EmailField(max_length=256, unique=True, default='')

@@ -12,7 +12,7 @@ class Monografia (models.Model):
     palavrachave = models.CharField("Palavra-chave", max_length=100, default = "")
     universidade = models.CharField(max_length=128, default = "")
     curso = models.CharField(max_length=100, default = "")
-    link = models.CharField("Link para PDF", max_length=512, default = "")
+    link = models.URLField("Link para PDF", max_length=512, default = "")
 
     def __str__(self):
         return self.titulo

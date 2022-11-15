@@ -10,11 +10,28 @@
 </head>
 <body>
 
-    {{ pessoa.id }} - {{ pessoa.nome }}
+    {{ pessoa.id }} - {{ pessoa.nome }} 
 
      <form action="{% url 'update' pessoa.id %}" method="post">
         {% csrf_token %}
+
         <input type="text" name="nome" value="{{pessoa.nome}}">
+
+        <select name="tipo" value="{{pessoa.tipo}}">
+            <option value=1>Autor</option>
+            <option value=2>Coautor</option>
+            <option value=3>Discente</option>
+        </select>
+
+        <input type="text" name="curso" value="{{pessoa.curso}}">
+        <input type="text" name="universidade" value="{{pessoa.universidade}}">
+        <input type="email" name="email" value="{{pessoa.email}}">
+        <input type="text" name="curriculo" value="{{pessoa.curriculo}}">
+        <input type="text" name="google_scholar" value="{{pessoa.google_scholar}}">
+        <input type="text" name="research_gate" value="{{pessoa.research_gate}}">
+        <input type="text" name="linkedin" value="{{pessoa.linkedin}}">
+        <input type="text" name="orcid" value="{{pessoa.orcid}}">
+        <input type="text" name="github" value="{{pessoa.github}}">
         <button type="submit">Editar</button>
     </form>
 

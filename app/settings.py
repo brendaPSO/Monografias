@@ -77,6 +77,7 @@ WSGI_APPLICATION = 'app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+#Banco na Nuvem
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -86,6 +87,18 @@ DATABASES = {
         'HOST': 'monografiasdpv.postgres.database.azure.com',
     }
 }
+
+#Banco Local
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#        'NAME': 'monografias',
+#        'USER': 'admin',
+#        'PASSWORD': 'admin',
+#        'HOST': 'localhost',
+#        'PORT': '',
+#    }
+#}
 
 
 # Password validation

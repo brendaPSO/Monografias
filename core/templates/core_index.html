@@ -1,40 +1,25 @@
-{% extends 'base.html' %}
-
+{% extends 'base.html'%}
 {% block content %}
+    <h1> Listagem de Autores, Orientadores e Co-Orientadores </h1>
 
-<form action="{% url 'salvar' %}" method="post">
-    {% csrf_token %}
-    <h3>Cadastrar Autores</h3>
-    <input type="text" name="nome" placeholder="Nome" style="display:block" required>
-
-    <select name="tipo" id="" style="display:block" required>
-        <option selected value="">Selecione o tipo</option>
-        <option value=1>Autor</option>
-        <option value=2>Coautor</option>
-        <option value=3>Discente</option>
-    </select>
-
-    <input type="text" name="curso" placeholder="Curso" style="display:block" required>
-    <input type="text" name="universidade" placeholder="Universidade" style="display:block" required>
-    <input type="email" name="email" placeholder="E-mail" style="display:block" required>
-    <input type="text" name="curriculo" placeholder="Curriculo" style="display:block">
-    <input type="text" name="google_scholar" placeholder="Google Scholar" style="display:block">
-    <input type="text" name="research_gate" placeholder="Research Gate" style="display:block">
-    <input type="text" name="linkedin" placeholder="Linkedin" style="display:block">
-    <input type="text" name="orcid" placeholder="Orcid" style="display:block">
-    <input type="text" name="github" placeholder="Github" style="display:block">
-
-    <button type="submit" style="margin-top: 10px">Salvar</button>
-</form>
-
-<ul>
-    {% for pessoa in pessoas %}
-        <li> {{ pessoa.id }} - {{ pessoa.nome }}
-            <a href="{% url 'editar' pessoa.id %}">Editar</a>
-            <a href="{% url 'delete' pessoa.id %}">Deletar</a>
-        </li>
-    {% endfor %}
-</ul>
-
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Curso</th>
+                <th scope="col">Universidade</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pessoa in lista %}
+            <tr>
+                <td>{{ pessoa.nome }}</td>
+                <td>{{ pessoa.curso }}</td>
+                <td>{{ pessoa.universidade }}</td>
+                <td><a href="{% url 'core_editar' pessoa.id %}"><button>Editar</button></a></td>
+                <td><a href="{% url 'core_apagar' pessoa.id %}"><button>Apagar</button></a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
-

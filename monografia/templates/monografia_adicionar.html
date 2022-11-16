@@ -8,5 +8,10 @@
     </table>
     <input type="submit" value="Submit">
 </form>
+
+{% if monografia %}
+    <a href="{% url 'monografia_apagar' monografia.id %}"><button>Apagar</button></a>  
+{% endif %}
+
 <a href="{% url 'monografia_index' %}"><button>Monografias Cadastradas</button></a>
 {% endblock %}

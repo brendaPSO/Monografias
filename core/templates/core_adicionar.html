@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+{% block content %}
+<form action = "" method="post">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <input type="submit" value="Cadastrar">
+</form>
+
+{% if pessoa %}
+    <a href="{% url 'core_apagar' pessoa.id %}"><button>Apagar</button></a>  
+{% endif %}
+
+<a href="{% url 'core_index' %}"><button>Pessoas Cadastradas</button></a>
+
+{% endblock %}

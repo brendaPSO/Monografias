@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+{% block content %}
+    <h1> Listagem de Monografias </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Titulo</th>
+                <th scope="col">Autor</th>
+                <th scope="col">Orientador</th>
+                <th scope="col">Co-Orientador</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for monografia in lista %}
+                <tr>
+                    <td>{{ monografia.titulo}}</td>
+                    <td>{{ monografia.autor }}</td>
+                    <td>{{ monografia.orientador }}</td>
+                    <td>{{ monografia.coorientador }}</td>
+                    <td><a href="{% url 'monografia_editar' monografia.id %}"><button>Editar</button></a></td>
+                    <td><a href="{% url 'monografia_apagar' monografia.id %}"><button>Apagar</button></a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

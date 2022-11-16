@@ -1,10 +1,9 @@
 from django.urls import path, include
-from .views import home, salvar, editar, update, delete
+from . import views
 
 urlpatterns = [
-    path('', home, name="core_index"),
-    path('salvar/', salvar, name="salvar"),
-    path('editar/<int:id>', editar, name="editar"),
-    path('update/<int:id>', update, name="update"),
-    path('delete/<int:id>', delete, name="delete"),
+    path('', views.index, name='core_index'),
+    path('adicionar/', views.adicionar, name='core_adicionar'),
+    path('editar/<int:id>/', views.editar, name='core_editar'),
+    path('apagar/<int:id>/', views.apagar, name='core_apagar'),
 ]

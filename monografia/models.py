@@ -4,7 +4,7 @@ from core.models import Pessoa
 # Create your models here.
 class Monografia (models.Model):
     titulo = models.CharField(max_length=256, default = "")
-    autor = models.ForeignKey(Pessoa, on_delete=models.CASCADE, related_name='autor', blank=True)
+    autor = models.OneToOneField(Pessoa, on_delete=models.CASCADE, related_name='autor', blank=True)
     orientador = models.ForeignKey(Pessoa, on_delete=models.CASCADE, related_name='orientador',blank=True)
     coorientador = models.ForeignKey(Pessoa, on_delete=models.CASCADE, related_name='coorientador',blank=True)
     data = models.DateField(max_length=30, default = "")

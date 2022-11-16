@@ -1,58 +1,45 @@
 from django.shortcuts import render, redirect
 from .models import Pessoa
+from .forms import PessoaForm
 
-
-def home(request):
+# Create your views here.
+def index(request):
     pessoas = Pessoa.objects.all()
-    return render(request, 'core_index.html', {"pessoas": pessoas})
+    context = {
+        'lista': pessoas
+    }
+    return render(request, 'core_index.html', context)
 
+def adicionar(request):
+    form = PessoaForm()
+    if request.method == "POST":
+        form = PessoaForm(request.POST)
+        if form.is_valid():
+            post = form.save()
+            post.save()
+            form = PessoaForm()
+            #return render(request, 'core_adicionar.html', {'form' : form})
+            return redirect('core_index')
+        else:
+            form = PessoaForm()
 
-def salvar(request):
-    r_nome = request.POST.get('nome')
-    r_tipo = request.POST.get('tipo')
-    r_curso = request.POST.get('curso')
-    r_universidade = request.POST.get('universidade')
-    r_email = request.POST.get('email')
-    r_curriculo = request.POST.get('curriculo')
-    r_google_scholar = request.POST.get('google_scholar')
-    r_research_gate = request.POST.get('research_gate')
-    r_linkedin = request.POST.get('linkedin')
-    r_orcid = request.POST.get('orcid')
-    r_github = request.POST.get('github')
-
-    Pessoa.objects.create(
-        nome=r_nome,
-        tipo=r_tipo,
-        curso=r_curso,
-        universidade=r_universidade,
-        email=r_email,
-        curriculo=r_curriculo,
-        google_scholar=r_google_scholar,
-        research_gate=r_research_gate,
-        linkedin=r_linkedin,
-        orcid=r_orcid,
-        github=r_github,
-    )
-
-    pessoas = Pessoa.objects.all()
-
-    return render(request, 'core_index.html', {"pessoas": pessoas})
-
+    return render(request, 'core_adicionar.html', {'form' : form})
 
 def editar(request, id):
     pessoa = Pessoa.objects.get(id=id)
-    return render(request, 'update.html', {"pessoa": pessoa})
+    form = PessoaForm(request.POST or None, instance=pessoa)
 
+    if form.is_valid():
+        form.save()
+        return redirect('core_index')
 
-def update(request, id):
-    novoNome = request.POST.get('nome')
+    return render(request, 'core_adicionar.html', {'form' : form, 'pessoa': pessoa})
+
+def apagar(request, id):
     pessoa = Pessoa.objects.get(id=id)
-    pessoa.nome = novoNome
-    pessoa.save()
-    return redirect(home)
 
+    if request.method== 'POST':
+        pessoa.delete()
+        return redirect('core_index')
 
-def delete(request, id):
-    pessoa = Pessoa.objects.get(id=id)
-    pessoa.delete()
-    return redirect(home)
+    return render(request, "core_apagar_confirma.html", {'pessoa': pessoa})

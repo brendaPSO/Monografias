@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'core',
     'app',
     'monografia',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -78,27 +79,27 @@ WSGI_APPLICATION = 'app.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 #Banco na Nuvem
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Monografias',
-        'USER': 'guilhermeadmin',
-        'PASSWORD': '8XKQ2BCAX3MNKRH6$',
-        'HOST': 'monografiasdpv.postgres.database.azure.com',
-    }
-}
-
-#Banco Local
 #DATABASES = {
 #    'default': {
-#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#        'NAME': 'monografias',
-#        'USER': 'admin',
-#        'PASSWORD': 'admin',
-#        'HOST': 'localhost',
-#        'PORT': '',
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': 'Monografias',
+#        'USER': 'guilhermeadmin',
+#        'PASSWORD': '8XKQ2BCAX3MNKRH6$',
+#        'HOST': 'monografiasdpv.postgres.database.azure.com',
 #    }
 #}
+
+#Banco Local
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'monografias',
+        'USER': 'admin',
+        'PASSWORD': 'admin',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
 
 
 # Password validation

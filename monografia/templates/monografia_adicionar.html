@@ -1,17 +1,21 @@
-{% extends 'base.html'%}
-{% block content %}
-<h1> Cadastro Monografia </h1>
-<form action = "" method = "post">
-    {% csrf_token %}
-    <table>
-        {{ form.as_table }}
-    </table>
-    <input type="submit" value="Submit">
+<title>Cadastro de Monografias</title>
+{% extends 'base.html'%} {% block content %}
+<h1>Cadastro Monografia</h1>
+<form action="" method="post">
+  {% csrf_token %}
+  <table>
+    {{ form.as_table }}
+  </table>
+  <input type="submit" value="Submit" />
 </form>
 
 {% if monografia %}
-    <a href="{% url 'monografia_apagar' monografia.id %}"><button>Apagar</button></a>  
+<a href="{% url 'monografia_apagar' monografia.id %}"
+  ><button>Apagar</button></a
+>
 {% endif %}
 
-<a href="{% url 'monografia_index' %}"><button>Monografias Cadastradas</button></a>
+<a href="{% url 'monografia_index' %}"
+  ><button>Monografias Cadastradas</button></a
+>
 {% endblock %}

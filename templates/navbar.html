@@ -1,21 +1,98 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'index' %}">Home</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'core_adicionar' %}">Cadastrar Autores</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'monografia_adicionar' %}">Cadastrar Monografias</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'pesquisar' %}">Pesquisar Monografias</a>
-          </li>
-        </ul>
-      </div>
+  <head>
+    <style>
+      body {
+        padding: 0;
+
+        margin: 0;
+      }
+
+      nav {
+        width: 100%;
+
+        display: flex;
+
+        position: fixed;
+
+        background-color: #00ff;
+
+        z-index: 99;
+      }
+
+      nav a {
+        color: #fff;
+
+        margin: auto 20px auto 40px;
+
+        text-decoration: none;
+
+        font-weight: bold;
+      }
+
+      nav li {
+        float: left;
+
+        list-style: none;
+
+        margin-left: 20px;
+      }
+      li {
+        border-right: 1px solid #bbb;
+      }
+
+      li:last-child {
+        border-right: none;
+      }
+    </style>
+  </head>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'index' %}">Home</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            href="{% url 'core_adicionar' %}"
+            >Cadastrar Autores</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            href="{% url 'monografia_adicionar' %}"
+            >Cadastrar Monografias</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            href="{% url 'monografia_pesquisar' %}"
+            >Pesquisar Monografias</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            href="{% url 'monografia_index' %}"
+            >Listagem de Monografias</a
+          >
+        </li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>

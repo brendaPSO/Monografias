@@ -41,6 +41,10 @@ INSTALLED_APPS = [
     'core',
     'app',
     'monografia',
+    'rest_framework',
+    'requests',
+    'response',
+    'json',
 ]
 
 MIDDLEWARE = [

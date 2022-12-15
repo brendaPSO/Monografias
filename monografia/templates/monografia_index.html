@@ -16,7 +16,7 @@
             </tr>
         </thead>
         <tbody>
-            {% for monografia in lista %}
+            {% for indice, monografia in lista.items %}
                 <tr>
                     <td>{{ monografia.titulo}}</td>
                     <td>{{ monografia.autor }}</td>

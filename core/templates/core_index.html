@@ -15,7 +15,7 @@
             </tr>
         </thead>
         <tbody>
-        {% for pessoa in lista %}
+        {% for indice, pessoa in lista.items %}
             <tr>
                 <td>{{ pessoa.nome }}</td>
                 <td>{{ pessoa.curso }}</td>

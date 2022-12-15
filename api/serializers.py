@@ -10,4 +10,4 @@ class PessoaSerializers(serializers.HyperlinkedModelSerializer):
 class MonografiaSerializers(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Monografia
-        fields = ['titulo', 'autor', 'orientador', 'coorientador', 'data', 'resumo', 'palavrachave', 'universidade', 'curso', 'link']
+        fields = ['id', 'titulo', 'autor', 'orientador', 'coorientador', 'data', 'resumo', 'palavrachave', 'universidade', 'curso', 'link']

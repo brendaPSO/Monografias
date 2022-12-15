@@ -3,12 +3,18 @@ from django.shortcuts import render, redirect
 from monografia.Filters import MonografiaFilter
 from . models import Monografia
 from . forms import MonografiaForm
+import requests
+import json
 
 # Create your views here.
 def index(request):
-    monografias = Monografia.objects.all()
+    monografias = requests.get("http://127.0.0.1:8000/api/monografia/")
+    lista = monografias.json()
+    dicionario = {}
+    for indice, valor in enumerate(lista):
+        dicionario[indice] = valor
     context = {
-        'lista': monografias
+        'lista': dicionario
     }
     return render(request, 'monografia_index.html', context)
 
@@ -28,7 +34,7 @@ def adicionar(request):
     return render(request, 'monografia_adicionar.html', {'form' : form})
 
 def editar(request, id):
-    monografia = Monografia.objects.get(id=id)
+    monografia = requests.get("http://127.0.0.1:8000/api/monografia?id={id}")
     form = MonografiaForm(request.POST or None, instance=monografia)
 
     if form.is_valid():
@@ -38,7 +44,7 @@ def editar(request, id):
     return render(request, 'monografia_adicionar.html', {'form' : form, 'monografia': monografia})
 
 def apagar(request, id):
-    monografia = Monografia.objects.get(id=id)
+    monografia = requests.get("http://127.0.0.1:8000/api/monografia?id={id}")
 
     if request.method== 'POST':
         monografia.delete()

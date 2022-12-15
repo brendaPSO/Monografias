@@ -46,7 +46,6 @@ def editar(request, id):
     return render(request, 'core_adicionar.html', {'form' : form, 'pessoa': pessoa})
 
 def apagar(request, id):
-    id = id
     pessoa = requests.get("http://127.0.0.1:8000/api/pessoa?id={id}")
 
     if request.method== 'POST':

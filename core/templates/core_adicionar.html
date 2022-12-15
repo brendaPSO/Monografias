@@ -1,18 +1,18 @@
 <title>Cadastrar Autores</title>
-{% extends 'base.html'%}
-{% block content %}
-<form action = "" method="post">
-    {% csrf_token %}
-    <table>
-        {{ form.as_table }}
-    </table>
-    <input type="submit" value="Cadastrar">
+{% extends 'base.html'%} {% block content %}
+
+<div class="my-4">
+  <h2>Cadastrar Autores</h2>
+</div>
+
+<form action="" method="post">
+  {% csrf_token %}
+  <table>
+    {{ form.as_table }}
+  </table>
+  <input class="btn btn-primary btn-md my-3" type="submit" value="Cadastrar">
 </form>
 
 {% if pessoa %}
-    <a href="{% url 'core_apagar' pessoa.id %}"><button>Apagar</button></a>  
-{% endif %}
-
-<a href="{% url 'core_index' %}"><button>Pessoas Cadastradas</button></a>
-
-{% endblock %}
+<a href="{% url 'core_apagar' pessoa.id %}"><button>Apagar</button></a>
+{% endif %} {% endblock %}

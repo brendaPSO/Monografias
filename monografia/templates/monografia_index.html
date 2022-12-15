@@ -1,7 +1,9 @@
 <title>Listagem de Monografias</title>
 {% extends 'base.html'%}
 {% block content %}
-    <h1> Listagem de Monografias </h1>
+    <div class="my-4">
+        <h2>Listagem de Monografias</h2>
+    </div>
 
     <table class="table">
         <thead>
@@ -10,6 +12,7 @@
                 <th scope="col">Autor</th>
                 <th scope="col">Orientador</th>
                 <th scope="col">Co-Orientador</th>
+                <th scope="col">Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -19,8 +22,10 @@
                     <td>{{ monografia.autor }}</td>
                     <td>{{ monografia.orientador }}</td>
                     <td>{{ monografia.coorientador }}</td>
-                    <td><a href="{% url 'monografia_editar' monografia.id %}"><button>Editar</button></a></td>
-                    <td><a href="{% url 'monografia_apagar' monografia.id %}"><button>Apagar</button></a></td>
+                    <td>
+                        <a href="{% url 'monografia_editar' monografia.id %}" class="btn btn-primary btn-sm active" role="button">Editar</a>
+                        <a href="{% url 'monografia_apagar' monografia.id %}" class="btn btn-danger btn-sm active" role="button">Apagar</a>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>

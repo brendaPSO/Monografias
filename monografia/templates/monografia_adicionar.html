@@ -1,21 +1,20 @@
 <title>Cadastro de Monografias</title>
 {% extends 'base.html'%} {% block content %}
-<h1>Cadastro Monografia</h1>
+
+<div class="my-4">
+  <h2>Cadastro Monografia</h2>
+</div>
+
 <form action="" method="post">
   {% csrf_token %}
   <table>
     {{ form.as_table }}
   </table>
-  <input type="submit" value="Submit" />
+  <input class="btn btn-primary btn-md my-3" type="submit" value="Cadastrar">
 </form>
 
 {% if monografia %}
-<a href="{% url 'monografia_apagar' monografia.id %}"
-  ><button>Apagar</button></a
->
+<a href="{% url 'monografia_apagar' monografia.id %}" class="btn btn-danger btn-sm active" role="button">Apagar</a>
 {% endif %}
 
-<a href="{% url 'monografia_index' %}"
-  ><button>Monografias Cadastradas</button></a
->
 {% endblock %}

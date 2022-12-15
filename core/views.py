@@ -1,12 +1,22 @@
 from django.shortcuts import render, redirect
 from .models import Pessoa
 from .forms import PessoaForm
+import requests
+import json
 
 # Create your views here.
 def index(request):
-    pessoas = Pessoa.objects.all()
+    api = "http://127.0.0.1:8000/api/pessoa/"
+    pessoas = requests.get(api)
+    try:
+        lista = pessoas.json()
+    except ValueError:
+        print("A resposta não chegou com o formato esperado.")
+    dicionario = {}
+    for indice, valor in enumerate(lista):
+        dicionario[indice] = valor
     context = {
-        'lista': pessoas
+        "lista" : dicionario
     }
     return render(request, 'core_index.html', context)
 
@@ -26,7 +36,7 @@ def adicionar(request):
     return render(request, 'core_adicionar.html', {'form' : form})
 
 def editar(request, id):
-    pessoa = Pessoa.objects.get(id=id)
+    pessoa = requests.get("http://127.0.0.1:8000/api/pessoa?id={id}")
     form = PessoaForm(request.POST or None, instance=pessoa)
 
     if form.is_valid():
@@ -36,7 +46,8 @@ def editar(request, id):
     return render(request, 'core_adicionar.html', {'form' : form, 'pessoa': pessoa})
 
 def apagar(request, id):
-    pessoa = Pessoa.objects.get(id=id)
+    id = id
+    pessoa = requests.get("http://127.0.0.1:8000/api/pessoa?id={id}")
 
     if request.method== 'POST':
         pessoa.delete()

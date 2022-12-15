@@ -6,14 +6,14 @@ from monografia.models import Monografia
 
 class PessoaViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows users to be viewed or edited.
+    API endpoint que permite adcionar ou editar pessoas.
     """
     queryset = Pessoa.objects.all()
     serializer_class = PessoaSerializers
 
 class MonografiaViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows users to be viewed or edited.
+    API endpoint que permite adcionar ou editar Monografias.
     """
     queryset = Monografia.objects.all()
     serializer_class = MonografiaSerializers

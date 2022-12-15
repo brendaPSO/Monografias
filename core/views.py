@@ -25,9 +25,12 @@ def adicionar(request):
     if request.method == "POST":
         form = PessoaForm(request.POST)
         if form.is_valid():
-            post = form.save()
-            post.save()
-            form = PessoaForm()
+            print(form.cleaned_data)
+            r = requests.post("http://127.0.0.1:8000/api/pessoa/", json=form.cleaned_data)
+            #post = form.save()
+            #post.save()
+            #form = PessoaForm()
+            r.status_code
             #return render(request, 'core_adicionar.html', {'form' : form})
             return redirect('core_index')
         else:
@@ -36,7 +39,7 @@ def adicionar(request):
     return render(request, 'core_adicionar.html', {'form' : form})
 
 def editar(request, id):
-    pessoa = requests.get("http://127.0.0.1:8000/api/pessoa?id={id}")
+    pessoa = Pessoa.objects.get(id=id)
     form = PessoaForm(request.POST or None, instance=pessoa)
 
     if form.is_valid():
@@ -46,7 +49,7 @@ def editar(request, id):
     return render(request, 'core_adicionar.html', {'form' : form, 'pessoa': pessoa})
 
 def apagar(request, id):
-    pessoa = requests.get("http://127.0.0.1:8000/api/pessoa?id={id}")
+    pessoa = Pessoa.objects.get(id=id)
 
     if request.method== 'POST':
         pessoa.delete()

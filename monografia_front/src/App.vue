@@ -1,7 +1,9 @@
 <template>
-  <Navbar :logo="logo_src" :alt="app_name" />
-  <router-view/>
-  <Footer />
+  <div>
+    <Navbar :logo="logo_src" :alt="app_name" />
+    <router-view/>
+    <Footer />
+  </div>
 </template>
 
 <script>

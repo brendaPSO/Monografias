@@ -22,7 +22,17 @@ const routes = [
     name: 'Editar',
     component: () => import(/* webpackChunkName : "editar" */ '../views/Editar.vue'),
     props: true
-  }
+  },
+  {
+    path: '/cadastros',
+    name: 'Cadastros',
+    component: () => import(/* webpackChunkName: "autores" */ '../views/Cadastros.vue')
+  },
+  {
+    path: '/editarcadastro/:id',
+    name: 'EditarCadastro',
+    component: () => import(/* webpackChunkName: "autores" */ '../views/EditarCadastro.vue')
+  },
 ]
 
 const router = createRouter({

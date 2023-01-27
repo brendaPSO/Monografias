@@ -107,7 +107,7 @@ export default {
 
       const res = await req.json();
 
-      this.msg = `Pedido removido com sucesso!`;
+      this.msg = `Monografia removido com sucesso!`;
       setTimeout(() => (this.msg = ""), 3000);
 
       this.getMonografiasAutores();
@@ -137,8 +137,8 @@ export default {
 }
 .monografia-table-row {
   width: 100%;
-  padding: 12px;
-  border-bottom: 1px solid #ccc;
+  padding: 14px;
+  border-bottom: 2px solid #ccc;
 }
 #monografia-table-heading div,
 .monografia-table-row div {

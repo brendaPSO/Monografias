@@ -4,6 +4,7 @@
       <img :src="logo" :alt="alt" id="logo">
     </router-link>
     <router-link to="/">Home</router-link>
+    <router-link to="/cadastros">Cadastros</router-link>
     <router-link to="/monografias">Monografias</router-link>
     <router-link to="/autores">Autores</router-link>
   </div>

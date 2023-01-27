@@ -1,6 +1,6 @@
 <template>
   <div class="main-container">
-    <h1>Editar Monografia: {{ this.id }}</h1>
+    <h1>Editar Monografia:</h1>
     <form id="monografia-form" @submit="editData">
       <div class="input-container"><label for="titulo">Título:</label><input v-model="this.titulo" type="text" placeholder="Titulo"></div>
       

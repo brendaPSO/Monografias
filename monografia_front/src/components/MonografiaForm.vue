@@ -193,7 +193,7 @@ export default {
         url: "http://localhost:8000/api/monografia/",
         headers: { "Content-Type": "application/json" },
         data: dataJson,
-      }).then(function (response) {
+      }).then(function(response){
         location.reload();
       });
 
@@ -218,9 +218,9 @@ export default {
     this.getAutores();
   },
   components: {
-    Message,
-  },
-};
+    Message
+  }
+}
 </script>
 
 <style scoped>
@@ -228,13 +228,11 @@ export default {
   max-width: 300px;
   margin: 0 auto;
 }
-
 .input-container {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
 }
-
 label {
   font-weight: bold;
   margin-bottom: 15px;
@@ -242,39 +240,32 @@ label {
   padding: 5px 10px;
   border-left: 4px solid #00719e;
 }
-
 input,
 select {
   padding: 5px 10px;
   width: 300px;
 }
-
 #opcionais-container {
   flex-direction: row;
   flex-wrap: wrap;
 }
-
 #opcionais-title {
   width: 100%;
 }
-
 .checkbox-container {
   display: flex;
   align-items: flex-start;
   width: 50%;
   margin-bottom: 20px;
 }
-
 .checkbox-container span,
 .checkbox-container input {
   width: auto;
 }
-
 .checkbox-container span {
   margin-left: 6px;
   font-weight: bold;
 }
-
 .submit-btn {
   background-color: #00719e;
   color: #fff;
@@ -286,7 +277,6 @@ select {
   cursor: pointer;
   transition: 0.5s;
 }
-
 .submit-btn:hover {
   background-color: transparent;
   color: #222;

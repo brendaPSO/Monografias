@@ -16,3 +16,12 @@ class MonografiaViewSet(viewsets.ModelViewSet):
     """
     queryset = Monografia.objects.all()
     serializer_class = MonografiaSerializers
+
+    #@property
+    #def allowed_methods(self):
+    #   """
+    #   Return the list of allowed HTTP methods, uppercased.
+    #   """
+    #   self.http_method_names.append("patch")
+    #   return [method.upper() for method in self.http_method_names
+    #       if hasattr(self, method)]

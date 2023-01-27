@@ -37,6 +37,9 @@
             Excluir
           </button>
         </div>
+        <div class="acao">
+            <router-link v-bind:to="'/editar/' + monografia.id">Editar</router-link>
+        </div>
       </div>
     </div>
   </div>
@@ -108,7 +111,7 @@ export default {
       setTimeout(() => (this.msg = ""), 3000);
 
       this.getMonografiasAutores();
-    },
+    }
   },
   mounted() {
     this.getMonografiasAutores();
